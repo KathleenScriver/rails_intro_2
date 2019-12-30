@@ -10,6 +10,7 @@ SmoothieIngredient.destroy_all
 Smoothie.destroy_all
 Ingredient.destroy_all
 
+
 straw = Smoothie.create(name: "Strawberry", size: 16)
 blueb = Smoothie.create(name: "Blueberry", size: 16)
 

@@ -37,5 +37,5 @@ ActiveRecord::Schema.define(version: 2019_12_10_173130) do
   end
 
   add_foreign_key "smoothie_ingredients", "ingredients"
-  add_foreign_key "smoothie_ingredients", "smoothies", column: "smoothie_id"
+  add_foreign_key "smoothie_ingredients", "smoothies"
 end

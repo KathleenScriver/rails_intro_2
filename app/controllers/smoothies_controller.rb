@@ -1,7 +1,7 @@
 class SmoothiesController < ApplicationController
     def index
-        smoothies = Smoothie.all
-        render json: smoothies
+        smoothies = Smoothie.includes(:ingredients)
+        render json: smoothies, include: [:ingredients]
     end
 
     def show
@@ -10,10 +10,17 @@ class SmoothiesController < ApplicationController
     end
 
     def create
-        Smoothie.create(
-            name: params[:name],
-            size: params[:size]
-        )
+        smoothie = Smoothie.create(smoothie_params)
+        byebug
         render json: {message: "You've successfully created a new smoothie!"}
+    end
+
+    private
+
+    def smoothie_params
+        params.require(:smoothie).permit(
+            :name, 
+            :size
+        )
     end
 end
